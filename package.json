@@ -4,10 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "cypress": "3.4.1",
     "parcel-bundler": "1.12.4"
   },
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "e2e": "cypress open"
   },
   "dependencies": {
     "app": "0.1.0",
