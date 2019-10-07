@@ -1,13 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class App extends Component {
-    render() {
-        return (
-            <div className="hello">
-                <h1>Hello</h1>
-            </div>
-        )
-    }
+
+  state = {
+    user: "User1"
+  }
+
+  render() {
+    return (
+      <div className="hello">
+        <h1>Hello { this.state.user }</h1>
+      </div>
+    );
+  }
 }
 
-export default App
+export default App;
