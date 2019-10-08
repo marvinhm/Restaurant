@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-
+import RestaurantListPage from './RestaurantListPage';
 export class App extends Component {
-
-  state = {
-    user: "User1"
-  }
 
   render() {
     return (
       <div className="hello">
-        <h1>Hello { this.state.user }</h1>
+        <RestaurantListPage/>
       </div>
     );
   }
