@@ -32061,6 +32061,7 @@ function (_Component) {
     value: function render() {
       var inputText = this.state.inputText;
       return _react.default.createElement("div", null, _react.default.createElement("input", {
+        style: {},
         "data-test": "newRestaurantName",
         value: inputText,
         onChange: this.handleTextChange,
@@ -32171,14 +32172,22 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(RestaurantListPage)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      restaurantNames: []
+      restaurantNames: [],
+      showNewRestaurantForm: false
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleAddRestaurant", function (restaurant) {
       _this.setState(function (state) {
         return {
+          showNewRestaurantForm: false,
           restaurantNames: [].concat(_toConsumableArray(state.restaurantNames), [restaurant])
         };
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onClickHandler", function () {
+      _this.setState({
+        showNewRestaurantForm: true
       });
     });
 
@@ -32188,15 +32197,18 @@ function (_Component) {
   _createClass(RestaurantListPage, [{
     key: "render",
     value: function render() {
-      var restaurantNames = this.state.restaurantNames;
+      var _this$state = this.state,
+          restaurantNames = _this$state.restaurantNames,
+          showNewRestaurantForm = _this$state.showNewRestaurantForm;
       var handleAddRestaurant = this.handleAddRestaurant;
+      var onClickHandler = this.onClickHandler;
       return _react.default.createElement("div", null, _react.default.createElement("button", {
         "data-test": "addRestaurantButton",
         type: "button",
-        className: ""
-      }, "Add Restaurant"), _react.default.createElement(_AddRestaurantForm.default, {
+        onClick: onClickHandler
+      }, "Add Restaurant"), showNewRestaurantForm ? _react.default.createElement(_AddRestaurantForm.default, {
         onSave: handleAddRestaurant
-      }), _react.default.createElement(_RestaurantList.default, {
+      }) : null, _react.default.createElement(_RestaurantList.default, {
         restaurantNames: restaurantNames
       }));
     }
@@ -32312,7 +32324,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58186" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54433" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

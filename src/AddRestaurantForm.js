@@ -21,9 +21,10 @@ export class AddRestaurantForm extends Component {
 
   render() {
     const { inputText } = this.state;
+
     return (
       <div>
-        <input data-test="newRestaurantName" value={ inputText } onChange={ this.handleTextChange } placeholder="Restaurant Name"/>
+        <input style={{ }} data-test="newRestaurantName" value={ inputText } onChange={ this.handleTextChange } placeholder="Restaurant Name"/>
         <button data-test="saveRestaurantButton" type="button" onClick={this.handleSave}>Save</button>
       </div>
     )

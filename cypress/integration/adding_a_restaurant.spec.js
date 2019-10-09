@@ -3,6 +3,12 @@ describe("Adding a Restaurant", () => {
     const restaurantName = "Meat Co.";
 
     cy.visit('http://localhost:1234');
+
+
+
+    // the input should nnot appear
+    cy.get('[data-test="newRestaurantName"]')
+      .should('not.exist');
     
     cy.get('[data-test="addRestaurantButton"]')
       .click();
@@ -12,6 +18,10 @@ describe("Adding a Restaurant", () => {
 
     cy.get('[data-test="saveRestaurantButton"]')
       .click();
+
+      //the input should again not appear
+      cy.get('[data-test="newRestaurantName"]')
+        .should('not.exist');
     
     cy.contains(restaurantName);
   });
