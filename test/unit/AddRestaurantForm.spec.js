@@ -10,12 +10,15 @@ describe("Add Restaurant", () => {
 
       const wrapper = mount(<AddRestaurantForm onSave={saveHandler}/>);
 
-      wrapper.find('[data-test="newRestaurantName"]')
-        .simulate('change', { target: { value: 'Meat Co.' } });
 
-      wrapper.find('[data-test="saveRestaurantButton"]')
+      wrapper.find('[data-test="newRestaurantName"]')
+      .simulate('change', { target: { value: 'Meat Co.' } });
+
+
+      wrapper.find('button[data-test="saveRestaurantButton"]')
       .simulate('click');
 
+      
       expect(saveHandler).toHaveBeenCalledWith('Meat Co.');
     });
   });

@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
+import { Button } from 'react-materialize';
+import M, { Input } from 'materialize-css';
 
 export class AddRestaurantForm extends Component {
 
   state = {
     inputText: ''
+  }
+
+  componentDidMount() {
+    M.updateTextFields();
   }
   
   handleTextChange = (e) => {
@@ -24,10 +30,20 @@ export class AddRestaurantForm extends Component {
 
     return (
       <div>
-        <input style={{ }} data-test="newRestaurantName" value={ inputText } onChange={ this.handleTextChange } placeholder="Restaurant Name"/>
-        <button data-test="saveRestaurantButton" type="button" onClick={this.handleSave}>Save</button>
+        <div className="input-field col s12">
+          <input id="restaurant" label="Restaurant name" value={ inputText } onChange={ this.handleTextChange } data-test="newRestaurantName" type="text"/>
+          <label htmlFor="restaurant">Restaurant name</label>
+          <span className="helper-text" data-error="wrong" data-success="right">Helper text</span>
+        </div>
+
+        <Button 
+          data-test="saveRestaurantButton" 
+          type="button" 
+          onClick={this.handleSave}>
+          Save
+        </Button>
       </div>
-    )
+    );
   }
 }
 

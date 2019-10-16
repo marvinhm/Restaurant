@@ -20,7 +20,9 @@
     "eslint-plugin-jest": "22.17.0",
     "eslint-plugin-react": "7.16.0",
     "jest": "24.9.0",
-    "parcel-bundler": "1.12.4"
+    "materialize-css": "1.0.0",
+    "parcel-bundler": "1.12.4",
+    "react-materialize": "3.4.1"
   },
   "scripts": {
     "start": "parcel index.html",
