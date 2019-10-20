@@ -57234,7 +57234,13 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 var RestaurantList = function RestaurantList(_ref) {
   var restaurantNames = _ref.restaurantNames;
-  return _react.default.createElement(_reactMaterialize.Collection, null, restaurantNames.map(function (restaurantName) {
+  return _react.default.createElement(_reactMaterialize.Collection, {
+    header: "Restaurants"
+  }, restaurantNames.length == 0 ? _react.default.createElement(_reactMaterialize.CollectionItem, {
+    style: {
+      color: 'grey'
+    }
+  }, "No Restaurants Added!") : restaurantNames.map(function (restaurantName) {
     return _react.default.createElement(_reactMaterialize.CollectionItem, {
       key: restaurantName
     }, restaurantName);
