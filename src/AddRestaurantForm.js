@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Button } from 'react-materialize';
-import M, { Input } from 'materialize-css';
+import M, { Input, Col, Row } from 'materialize-css';
 
 export class AddRestaurantForm extends Component {
 
@@ -37,6 +37,9 @@ export class AddRestaurantForm extends Component {
         </div>
 
         <Button 
+          s={12}
+          m={4}
+          l={2}
           data-test="saveRestaurantButton" 
           type="button" 
           onClick={this.handleSave}>

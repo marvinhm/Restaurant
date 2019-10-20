@@ -57200,6 +57200,9 @@ function (_Component) {
         "data-error": "wrong",
         "data-success": "right"
       }, "Helper text")), _react.default.createElement(_reactMaterialize.Button, {
+        s: 12,
+        m: 4,
+        l: 2,
         "data-test": "saveRestaurantButton",
         type: "button",
         onClick: this.handleSave
@@ -57339,15 +57342,15 @@ function (_Component) {
           showNewRestaurantForm = _this$state.showNewRestaurantForm;
       var handleAddRestaurant = this.handleAddRestaurant;
       var onClickHandler = this.onClickHandler;
-      return _react.default.createElement("div", null, _react.default.createElement(_reactMaterialize.Button, {
+      return _react.default.createElement("div", null, _react.default.createElement(_reactMaterialize.Row, null, _react.default.createElement(_reactMaterialize.Button, {
         "data-test": "addRestaurantButton",
         type: "button",
         onClick: onClickHandler
-      }, "Add Restaurant"), showNewRestaurantForm ? _react.default.createElement(_AddRestaurantForm.default, {
+      }, "Add Restaurant")), _react.default.createElement(_reactMaterialize.Row, null, showNewRestaurantForm ? _react.default.createElement(_AddRestaurantForm.default, {
         onSave: handleAddRestaurant
-      }) : null, _react.default.createElement(_RestaurantList.default, {
+      }) : null), _react.default.createElement(_reactMaterialize.Row, null, _react.default.createElement(_RestaurantList.default, {
         restaurantNames: restaurantNames
-      }));
+      })));
     }
   }]);
 
@@ -57368,6 +57371,8 @@ exports.default = exports.App = void 0;
 var _react = _interopRequireWildcard(require("react"));
 
 var _RestaurantListPage = _interopRequireDefault(require("./RestaurantListPage"));
+
+var _reactMaterialize = require("react-materialize");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -57409,7 +57414,12 @@ function (_Component) {
     value: function render() {
       return _react.default.createElement("div", {
         className: "hello"
-      }, _react.default.createElement(_RestaurantListPage.default, null));
+      }, _react.default.createElement(_reactMaterialize.Row, null, _react.default.createElement(_reactMaterialize.Col, {
+        s: 12,
+        m: 10,
+        l: 8,
+        offset: "m1 l2"
+      }, _react.default.createElement(_RestaurantListPage.default, null))));
     }
   }]);
 
@@ -57419,7 +57429,7 @@ function (_Component) {
 exports.App = App;
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./RestaurantListPage":"src/RestaurantListPage.js"}],"src/main.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./RestaurantListPage":"src/RestaurantListPage.js","react-materialize":"node_modules/react-materialize/lib/index.js"}],"src/main.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -57461,7 +57471,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53147" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59777" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
