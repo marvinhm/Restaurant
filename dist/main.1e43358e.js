@@ -57236,15 +57236,33 @@ var RestaurantList = function RestaurantList(_ref) {
   var restaurantNames = _ref.restaurantNames;
   return _react.default.createElement(_reactMaterialize.Collection, {
     header: "Restaurants"
-  }, restaurantNames.length == 0 ? _react.default.createElement(_reactMaterialize.CollectionItem, {
+  }, _react.default.createElement(RestaurantItems, {
+    restaurantNames: restaurantNames
+  }));
+};
+
+var RestaurantItems = function RestaurantItems(_ref2) {
+  var restaurantNames = _ref2.restaurantNames;
+  return restaurantNames.length == 0 ? _react.default.createElement(NoRestaurantItems, null) : _react.default.createElement(SomeRestaurantItems, {
+    restaurantNames: restaurantNames
+  });
+};
+
+var NoRestaurantItems = function NoRestaurantItems() {
+  return _react.default.createElement(_reactMaterialize.CollectionItem, {
     style: {
       color: 'grey'
     }
-  }, "No Restaurants Added!") : restaurantNames.map(function (restaurantName) {
+  }, "No Restaurants Added!");
+};
+
+var SomeRestaurantItems = function SomeRestaurantItems(_ref3) {
+  var restaurantNames = _ref3.restaurantNames;
+  return restaurantNames.map(function (restaurantName) {
     return _react.default.createElement(_reactMaterialize.CollectionItem, {
       key: restaurantName
     }, restaurantName);
-  }));
+  });
 };
 
 var _default = RestaurantList;
@@ -57341,20 +57359,25 @@ function (_Component) {
   }
 
   _createClass(RestaurantListPage, [{
+    key: "renderRestaurantForm",
+    value: function renderRestaurantForm() {
+      if (this.state.showNewRestaurantForm) {
+        return _react.default.createElement(_AddRestaurantForm.default, {
+          onSave: this.handleAddRestaurant
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this$state = this.state,
-          restaurantNames = _this$state.restaurantNames,
-          showNewRestaurantForm = _this$state.showNewRestaurantForm;
+      var restaurantNames = this.state.restaurantNames;
       var handleAddRestaurant = this.handleAddRestaurant;
       var onClickHandler = this.onClickHandler;
       return _react.default.createElement("div", null, _react.default.createElement(_reactMaterialize.Row, null, _react.default.createElement(_reactMaterialize.Button, {
         "data-test": "addRestaurantButton",
         type: "button",
         onClick: onClickHandler
-      }, "Add Restaurant")), _react.default.createElement(_reactMaterialize.Row, null, showNewRestaurantForm ? _react.default.createElement(_AddRestaurantForm.default, {
-        onSave: handleAddRestaurant
-      }) : null), _react.default.createElement(_reactMaterialize.Row, null, _react.default.createElement(_RestaurantList.default, {
+      }, "Add Restaurant")), _react.default.createElement(_reactMaterialize.Row, null, this.renderRestaurantForm()), _react.default.createElement(_reactMaterialize.Row, null, _react.default.createElement(_RestaurantList.default, {
         restaurantNames: restaurantNames
       })));
     }
@@ -57418,14 +57441,12 @@ function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", {
-        className: "hello"
-      }, _react.default.createElement(_reactMaterialize.Row, null, _react.default.createElement(_reactMaterialize.Col, {
+      return _react.default.createElement(_reactMaterialize.Row, null, _react.default.createElement(_reactMaterialize.Col, {
         s: 12,
         m: 10,
         l: 8,
         offset: "m1 l2"
-      }, _react.default.createElement(_RestaurantListPage.default, null))));
+      }, _react.default.createElement(_RestaurantListPage.default, null)));
     }
   }]);
 

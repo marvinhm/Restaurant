@@ -37,9 +37,7 @@ export class AddRestaurantForm extends Component {
         </div>
 
         <Button 
-          s={12}
-          m={4}
-          l={2}
+          s={12} m={4} l={2}
           data-test="saveRestaurantButton" 
           type="button" 
           onClick={this.handleSave}>

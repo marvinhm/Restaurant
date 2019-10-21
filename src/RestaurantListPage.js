@@ -9,6 +9,14 @@ export class RestaurantListPage extends Component {
     showNewRestaurantForm: false,
   }
 
+  renderRestaurantForm() {
+    if (this.state.showNewRestaurantForm) {
+      return (
+      <AddRestaurantForm onSave={this.handleAddRestaurant}/>
+      );
+    }
+  }
+
   handleAddRestaurant = (restaurant) => {
     this.setState(state => ({
       showNewRestaurantForm: false,
@@ -26,17 +34,17 @@ export class RestaurantListPage extends Component {
   }
 
   render() {
-    const { restaurantNames, showNewRestaurantForm } = this.state;
+    const { restaurantNames } = this.state;
     const handleAddRestaurant = this.handleAddRestaurant;
     const onClickHandler = this.onClickHandler;
 
     return (
       <div>
-        <Row>
+        <Row> 
         <Button data-test="addRestaurantButton" type="button" onClick={onClickHandler}>Add Restaurant</Button>
         </Row>
         <Row>
-        { showNewRestaurantForm ? <AddRestaurantForm onSave={handleAddRestaurant}/> : null}
+        { this.renderRestaurantForm() }
         </Row>
         <Row>
         <RestaurantList restaurantNames={ restaurantNames }/>
